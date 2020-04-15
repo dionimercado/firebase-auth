@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { LinkNav } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import Context from "../context";
 export default () => {
   const { state, dispatch } = useContext(Context);
@@ -9,22 +9,22 @@ export default () => {
       <h1>Firebase Auth</h1>
       <ul>
         <li>
-          <LinkNav to="/home">Home</LinkNav>
+          <NavLink to="/">Home</NavLink>
         </li>
         <li>
-          <LinkNav to="/profile">Profile</LinkNav>
+          <NavLink to="/profile">Profile</NavLink>
         </li>
-        <li>
           {state.user.uid ? (
+            <li>
             <button onClick={() => dispatch({ type: "USER_LOGGED_OUT" })}>
               Log Out
             </button>
+            </li>
           ) : (
             <li>
-              <LinkNav to="/login">Login</LinkNav>
+              <NavLink to="/login">Login</NavLink>
             </li>
           )}
-        </li>
       </ul>
     </nav>
   );

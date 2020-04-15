@@ -1,8 +1,10 @@
 //added here
-import * as firebase from "firebase";
+import firebase from "firebase/app";
+import "firebase/auth"
+import "firebase/database"
 
 const firebaseConfig = {
-  apiKey: "abc",
+  apiKey: "abAIzaSyARefzQHATsXP7YI6txAi68wMcFFtf1l2oc",
   authDomain: "book-worm-tutorial.firebaseapp.com",
   databaseURL: "https://book-worm-tutorial.firebaseio.com",
   projectId: "book-worm-tutorial",
@@ -16,6 +18,7 @@ class Firebase {
     if (!firebase.apps.length) {
       firebase.initializeApp(firebaseConfig);
     }
+    this.config = firebaseConfig
     this.auth = firebase.auth();
     this.db = firebase.database();
     // this.authListener = null;

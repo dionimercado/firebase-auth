@@ -1,14 +1,7 @@
-import React, { useEffect, useContext } from "react";
-import Context from "../context";
+import React from "react";
 
 export default ({ history }) => {
-  const { state } = useContext(Context);
-
-  useEffect(() => {
-    if (state.user.uid) {
-      return history.push("/profile");
-    }
-  });
+  
 
   return (
     <div>

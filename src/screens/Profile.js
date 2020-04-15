@@ -1,17 +1,24 @@
-import React, { useEffect, useContext } from "react";
+import React, {  useContext } from "react";
 import Context from "../context";
 
 export default ({ history }) => {
   const { state } = useContext(Context);
 
-  useEffect(() => {
-    if (!state.user.uid) {
-      return history.push("/");
-    }
-  });
+
+
+  if(!state.user.uid){
+    return (
+      <div>
+  
+        <h1>Unauthorized</h1>
+        <button onClick={() => history.push("/login")}>Please login</button>
+      </div>
+    );
+  }
 
   return (
     <div>
+
       <h1>Profile Route</h1>
     </div>
   );

@@ -10,7 +10,36 @@ import Context from "./context";
 export default () => {
   const { state, dispatch } = useContext(Context);
 
+  console.log({fb: Firebase})
+
   useEffect(() => {
+
+    (async() => {
+      try {
+        const user = await Firebase.getCurrentUser();
+  
+        if (user) {
+          //this.props.navigation.navigate('HomeScreen')
+          //take him to the home page
+  
+          // this.setState({ isLoggedIn: true });
+          //store the user in redux
+        console.log({ user });
+
+        } else {
+          //user is signed out
+          // take him to the login screen
+          //this.props.navigation.navgate('LoginScreen')
+          // this.setState({ isLoggedIn: false });
+          console.log('user logged out')
+        }
+  
+      } catch (ex) {
+        console.error({ ex });
+      }
+    })()
+
+
     return () => {};
   });
 
